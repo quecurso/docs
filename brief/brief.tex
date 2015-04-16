@@ -1,0 +1,158 @@
+\documentclass[a4paper,11pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paquetes utilizados
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Soporte para el lenguaje español
+\usepackage{textcomp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+
+% Graficos
+\usepackage{graphicx}
+
+% Encabezados y pies de pagina
+\usepackage{fancyhdr}
+\setlength{\headheight}{15.2pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{(75.99) Trabajo Profesional}
+\rhead{Brief de Proyecto}
+\cfoot{\thepage}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titulo
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+
+\center
+
+\textsc{\LARGE Universidad de Buenos Aires}\\[0.5cm]
+\textsc{\Large Facultad de Ingeniería}\\[1.5cm]
+
+\includegraphics[scale=0.5]{logo.png}\\[1cm]
+
+
+\textsc{\large (75.99) Trabajo Profesional}\\[0.25cm]
+\HRule \\[0.4cm]
+{\huge \bfseries quecurso.com.ar}\\[0.4cm]
+\HRule \\[0.5cm]
+
+{\large \today}
+
+\begin{bottompar}
+\flushleft
+Arana, Andrés          - P. 86.203
+
+Piano, Sergio          - P. 85.191
+\end{bottompar}
+
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Introducción}
+
+\baselineskip=18pt
+Hay aproximadamente 9000 alumnos de grado cursando en la Facultad de Ingeniería
+de la Universidad de Buenos Aires. Todos ellos se enfrentan al mismo problema:
+Organizar la cursada es difícil, demanda una planificación y gestión que es
+lateral a las tareas académicas. Desde la selección de materias a cursar, que
+implica el análisis de feedback por parte de otros alumnos en foros públicos,
+la utilización de grillas de cálculo para la revisión de correlatividades, y un
+proceso posterior manual de calendarización; hasta el armado y coordinación de
+grupos de trabajos prácticos o el control de fechas de entregas y evaluaciones.
+
+El problema existe, y la evidencia de esto es que hay varias herramientas
+aisladas e informales creadas por alumnos para ayudar a la gestión de la
+cursada, como ser la InfoGrilla (un excel con macros que resuelve el problema
+de correlatividades para la carrera de Ingeniería en Informática) o proyectos
+como PlaniFI.
+
+\section*{{\Large{}El proyecto}}
+
+Proponemos armar una aplicación web junto con un componente mobile (nativo y
+HTML5), que le permita a los alumnos gestionar su cursada en varios aspectos,
+como la selección de materias a cursar, el armado y operación de los grupos de
+estudio y de trabajos prácticos y alertas en fechas significativas, enmarcado
+en un sistema con funcionalidades de gamification.
+
+\subsubsection*{\textbf{Módulos y funcionalidades principales}}
+
+Los módulos principales del sistema son los siguientes:
+
+\begin{itemize}
+    \item Módulo de datos personales y de perfil, incluyendo carrera y
+      orientación.
+
+    \item Módulo de gestión de contactos, en donde un alumno puede indicar que
+      otro es un compañero bajo aceptación de este otro, con integración con
+      redes sociales para network discovery.
+
+    \item Módulo de registro de materias aprobadas, materias que el alumno
+      tiene interés por cursar y materias actualmente cursando.
+
+    \item Módulo de calificación de materias, con ratings en diferentes
+      aspectos importantes como calidad de clases teóricas, prácticas y
+      dificultad.
+
+    \item Módulo de calendarización de cursada, con un algoritmo de generación
+      automática en base a correlatividades, materias, intereses y
+      calificaciones, con posibilidad de generación manual.
+
+    \item Módulo autogestionado de información de fechas de evaluación y
+      entrega de trabajo práctico. Los alumnos pueden registrar fechas
+      importantes, y es la propia comunidad de alumnos a través de un sistema
+      de reputación y validación cruzada la que controla estas registraciones
+      generales.
+
+    \item Módulos de recordatorios personales, para registrar fechas de firma
+      de libretas, etc.
+
+    \item Módulo de notificaciones, con push notifications, emails y otros
+      canales de alertas.
+
+    \item Módulo de gamification, logros, puntos de experiencia y niveles para
+      fomentar la participación del alumnado, tanto en el uso del sistema como
+      en el control de información cargada por otros usuarios.
+
+    \item Módulo de integración con aplicaciones de calendarios, como google
+      calendar.
+\end{itemize}
+
+\section*{{\Large{}Quiénes somos}}
+
+Los integrantes del equipo de desarrollo del proyecto son:
+
+\begin{itemize}
+    \item Andrés Arana, estudiante de Ingeniería en Informática, padrón 86.203.
+      Trabaja en el área de sistemas hace 11 años, desempeñando tareas de
+      desarrollo, análisis de requerimientos y planificación de proyectos. En
+      este momento trabaja en un emprendimiento propio de producto de software.
+
+    \item Sergio Piano, estudiante de Ingeniería en Informática, padrón 85.191.
+      Trabaja en sistemas hace 9 años, desempeñando tareas de liderazgo técnico
+      y desarrollo. Trabajando actualmente en mercadolibre.
+\end{itemize}
+
+\section*{{\Large{}Proyectos relacionados}}
+
+En el 1° cuatrimestre de 2015 se desarrolló para la materia 75.47 - Taller de
+Desarrollo de Proyectos II un trabajo práctico denominado ``Campus Virtual''
+cuya funcionalidad está relacionada al proyecto que estamos presentando. Es de
+nuestro interés integrar lo expuesto anteriormente con lo ya desarrollado en
+este proyecto, orientado fundamentalmente a la gestión de foros y grupos de
+comunicación.
+
+\end{document}

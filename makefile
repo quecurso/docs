@@ -1,16 +1,21 @@
-prepare:
-	-mkdir -p build/doc
+.PHONY: preview-brief spell-brief clean all
+
+all: build/doc/brief/brief.pdf
+
+build/doc/brief/brief.pdf: build/doc/brief brief/brief.tex
+	pdflatex --output-directory build/doc/brief brief/brief.tex
+	pdflatex --output-directory build/doc/brief brief/brief.tex
+	pdflatex --output-directory build/doc/brief brief/brief.tex
+
+build/doc/brief:
+	mkdir -p build/doc/brief
+
+preview-brief: build/doc/brief/brief.pdf
+	evince build/doc/brief/brief.pdf &
+
+spell-brief:
+	aspell -t check brief/brief.tex -d es
 
 clean:
-	rm -rf build tags
+	rm -rf build
 
-doc: prepare
-	pdflatex --output-directory build/doc informe.tex
-	pdflatex --output-directory build/doc informe.tex
-	pdflatex --output-directory build/doc informe.tex
-
-doc-preview: doc
-	evince build/doc/informe.pdf &
-
-doc-spell:
-	aspell -t check informe.tex -d es
