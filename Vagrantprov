@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# Ensure apt is up to date
+sudo apt-get clean
+sudo apt-get update
+
+# Install latex utilities
+sudo apt-get install -y texlive texlive-lang-spanish
+
