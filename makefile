@@ -1,20 +1,16 @@
-.PHONY: preview-brief spell-brief clean all
+.PHONY: clean all
 
-all: build/doc/brief/brief.pdf
+DOC_NAMES=brief plan manual
 
-build/doc/brief/brief.pdf: build/doc/brief brief/brief.tex
-	pdflatex --output-directory build/doc/brief brief/brief.tex
-	pdflatex --output-directory build/doc/brief brief/brief.tex
-	pdflatex --output-directory build/doc/brief brief/brief.tex
+DOC_PATHS=$(addsuffix /main.pdf, $(addprefix build/, $(DOC_NAMES)))
 
-build/doc/brief:
-	mkdir -p build/doc/brief
+all: $(DOC_PATHS)
 
-preview-brief: build/doc/brief/brief.pdf
-	evince build/doc/brief/brief.pdf &
-
-spell-brief:
-	aspell -t check brief/brief.tex -d es
+build/%/main.pdf: src/%/main.tex
+	mkdir -p build/$*
+	pdflatex --output-directory build/$* $<
+	pdflatex --output-directory build/$* $<
+	pdflatex --output-directory build/$* $<
 
 clean:
 	rm -rf build

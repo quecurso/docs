@@ -4,7 +4,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
   # Provision the development environment
-  config.vm.provision :shell, path: "Vagrantprov", privileged: false
+  config.vm.provision :shell, inline: <<-PROVISION
+    apt-get update
+    apt-get install -y texlive texlive-lang-spanish
+  PROVISION
 
   # Add more virtual memory
   config.vm.provider "virtualbox" do |v|
