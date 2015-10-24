@@ -11,6 +11,8 @@
 
 % Graficos
 \usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{pdflscape}
 
 % Encabezados y pies de pagina
 \usepackage{fancyhdr}
@@ -67,20 +69,117 @@ Piano, Sergio          - P. 85.191
 \section{Introducción}
 \baselineskip=18pt
 
-\section{Objectivo}
+\section{Propósito o justificación del proyecto}
+
+Hay aproximadamente 9000 alumnos de grado cursando en la Facultad de Ingeniería
+de la Universidad de Buenos Aires. Todos ellos se enfrentan al mismo problema:
+Organizar la cursada es difícil, demanda una planificación y gestión que es
+lateral a las tareas académicas. Desde la selección de materias a cursar, que
+implica el análisis de feedback por parte de otros alumnos en foros públicos,
+la utilización de grillas de cálculo para la revisión de correlatividades, y un
+proceso posterior manual de calendarización; hasta el armado y coordinación de
+grupos de trabajos prácticos o el control de fechas de entregas y evaluaciones.
+
+El problema existe, y la evidencia de esto es que hay varias herramientas
+aisladas e informales creadas por alumnos para ayudar a la gestión de la
+cursada, como ser la InfoGrilla (un excel con macros que resuelve el problema
+de correlatividades para la carrera de Ingeniería en Informática) o proyectos
+como PlaniFI.
+
+\section{Objetivo}
+
+Desarrollar una herramienta de organización y autogestión de la cursada para el
+alumnado de la facultad de Ingeniería de la Universidad de Buenos Aires. El
+proyecto tiene una duración de 8 meses que comienza en Noviembre 2015 y
+finalizará en Junio 2016. 
 
 \section{Interesados}
 
+Los princpales interesados son:
+
+\begin{description}
+
+  \item[Alumnado de la facultad] 
+
+    Considerado beneficiario del sistema, afecatado positivamente. Su rol
+    dentro de la facultad es de usuario, es de tipo interno debido a quién será
+    el usuario principal. La necesidad de información que maneja es amplia y la
+    manera de contactar es a través de su dispositivo o de su email.
+
+  \item[La facultad]
+
+    Considerado beneficiario del sistema, lo afecta positivamente. Tiene baja
+    necesidad de información, y puede llegar a tener un impacto alto en función
+    de la disponibilidad de acceso a servicios. Los contactos que tenemos son por mail. 
+  
+  \item[Los profesores]
+    
+    Pueden llegar a tener un impacto negativo. Bajo nivel de necesidad de
+    información, la manera que tenemos de contactarnos es a través del mail.
+
+  \item[Nosotros]
+    
+    Considerados beneficiarios del sistema, siendo ademas de los creadores del
+    sistema también alumnado de la facultada de ingeniería.
+
+\end{description}
+
 \section{Requerimientos}
 
-\section{Suposiciones}
+    Para la construcción del proyecto se deberá diseñar y desarrollar una
+    aplicación web que permita gestionar la cursada del alumno en varios
+    aspectos. Los mismos le presentarán herramientas para la selección de
+    materias a cursar, el armado y gestión de los grupos de estudio y trabajos
+    prácticos, un sistema de alertas en fechas importantes y un sistema de
+    puntos para motivar al usuario a ir cumpliendo metas y objetivos.
+
+\section{Supuestos}
+
+    Los alumnos que utilizarán el sistema contarán con un dispositivo movil.
+    Acceso a servicios que permitan conocer la información de las cursadas, como ser las materias y sus horarios.
+    El alumno va a cargar su perfil informando la cantidad de materias que tiene realizadas y las notas de cada una de ellas.
+
 
 \section{Limitaciones}
+
 
 \section{Cronograma}
 
 \section{Costos}
 
 \section{Riesgos}
+
+\newpage
+\begin{table}[h!t]
+\centering
+\rotatebox{90}{
+  \begin{tabular}{ | l | p{5cm} | p{5cm} | p{5cm} | p{3cm} | l | l | l | p{3cm} | p{2cm} | p{3cm} | p{2cm} | p{2cm} | l | }
+  \hline
+  \# & Riesgo & Tipo & Causas & Consecuencias & Probabildad & Impacto & Exposición & Plan de Respuesta & Umbral & Plan de Contingencia & Estado & Responsable & Observaciones\\ \hline
+  1 &
+  Dado que el alumno tiene que cargar su situción actual dentro de la facultad para dar inicio a los flujos dentro del sistema, no tendríamos registro de tal alumno. &
+  Amenaza &
+  Tener que llenar un perfil del alumno dentro de la facultad para poder tener un feedback de su situación actual &
+  No tener al alumno registrado dentro del sistema &
+  Alta & Alta & Alta &
+  Mitigar, vamos a mostrar una buena experiencia de usuario para poder atrapar al alumno &
+  Si no se consigue un minimo de 10 usuarios nuevos por mes. &
+  pensamos que otras alternativas de marketing pueden llegar a aplicar. &
+  Sin suceder &
+  Lider de proyecto & \\ 
+  2 &
+  Dado que no haya un alumno que indique al sistema las fechas importantes, tales como examenes de parciales, entregas de trabajos prácticos o fechas de finales no se generarían alertas para las fechas mencionadas &
+  Amenaza &
+  Falta de notificación de parte de alguno de los alumnos de las materias en cuanto a las fechas importantes &
+  No se generarían alertas para dichas fechas.  &
+  Alta & Alta & Alta &
+  Aceptar. Considerando que los alumnos no van a informar la fecha, se desactivará la alerta en éste caso para la materia en la que no se tiene información.  &
+  - & &
+  Sin suceder &
+  Lider de proyecto & \\ 
+  \hline
+\end{tabular}
+}
+\end{table}
 
 \end{document}
