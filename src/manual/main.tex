@@ -9,7 +9,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 
-% Graficos
+% Gráficos
 \usepackage{graphicx}
 
 % Encabezados y pies de pagina
@@ -21,6 +21,9 @@
 \rhead{Manual de Proyecto}
 \cfoot{\thepage}
 
+% Courier para términos técnicos
+\usepackage{courier}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,32 +34,32 @@
 
 \begin{titlepage}
 
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+  \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+  \newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
 
-\center
+  \center
 
-\textsc{\LARGE Universidad de Buenos Aires}\\[0.5cm]
-\textsc{\Large Facultad de Ingeniería}\\[1.5cm]
+  \textsc{\LARGE Universidad de Buenos Aires}\\[0.5cm]
+  \textsc{\Large Facultad de Ingeniería}\\[1.5cm]
 
-\includegraphics[scale=0.5]{src/common/logo.png}\\[1cm]
+  \includegraphics[scale=0.5]{src/common/logo.png}\\[1cm]
 
 
-\textsc{\large (75.99) Trabajo Profesional}\\[0.25cm]
-\HRule \\[0.4cm]
-{\huge \bfseries Manual de Proyecto}
-\HRule \\[0.4cm]
+  \textsc{\large (75.99) Trabajo Profesional}\\[0.25cm]
+  \HRule \\[0.4cm]
+  {\huge \bfseries Manual de Proyecto}
+  \HRule \\[0.4cm]
 
-{\large quecurso.com.ar}
+  {\large quecurso.com.ar}
 
-\begin{bottompar}
-\flushleft
-{\bfseries Integrantes:}
+  \begin{bottompar}
+    \flushleft
+    {\bfseries Integrantes:}
 
-Arana, Andrés          - P. 86.203
+    Arana, Andrés          - P. 86.203
 
-Piano, Sergio          - P. 85.191
-\end{bottompar}
+    Piano, Sergio          - P. 85.191
+  \end{bottompar}
 
 \end{titlepage}
 
@@ -67,26 +70,290 @@ Piano, Sergio          - P. 85.191
 \section{Introducción}
 \baselineskip=18pt
 
-\section{Equipo}
+El presente documento sumariza las metodologías, los procesos, las herramientas
+y las técnicas utilizadas durante el desarrollo del proyecto.
 
 \section{Metodología}
 
+La metodología utilizada está basada en SCRUM, y adaptada a las
+particularidades de un equipo de trabajo pequeño que no está constantemente
+trabajando en el mismo horario ni lugar.
+
+Algunas diferencias y particularidades con respecto a SCRUM son las siguientes:
+
+\begin{description}
+
+  \item[Product Owner]
+
+    El rol del product owner es llevado a cabo por ambos integrantes del
+    equipo. Debido a que el sistema a desarrollar es de consumo masivo y con
+    releases intermedios parciales de tipo MVP, los intereses del usuario son
+    determinados a través de analytics de uso, utilizando técnicas de A/B
+    testing o similares para detectar y validar posibles requisitos.
+
+  \item[Scrum Master]
+
+    El rol de scrum master se rotará en cada sprint entre los integrantes del
+    equipo.
+
+  \item[Sprints]
+
+    Se decidió realizar sprints de dos semanas, con una única reunión de cierre
+    que incluye las tareas desarrolladas normalmente en las reuniones de
+    planning y retrospective de la metodología al finalizar cada una de las
+    sprints.
+
+    En cada reunión de cierre se analizan y repriorizan las tareas pendientes
+    de la sprint, se reprioriza el backlog, se seleccionan en función de la
+    velocidad del equipo las tareas de la siguiente sprint y se realiza la
+    revisión retrospectiva sobre la sprint terminada.
+
+  \item[Daily scrums]
+
+    Se decidió evitar la realización de las daily scrums, debido a que el
+    equipo no va a estar colocado espacial ni temporalmente excepto para las
+    reuniones de planning y retrospective.
+
+\end{description}
+
 \section{Trazabilidad}
 
-\subsection{Trazabilidad de Requerimientos}
+En esta sección se detallan las herramientas y procesos relacionados a dónde y
+cómo se registran distintos aspectos de la gestión del proyecto.
+
+\subsection{Trazabilidad de Eventos Metodológicos}
+
+De acuerdo a lo descripto en la sección de Metodología existen ciertos eventos
+metodológicos cuya trazabilidad debe ser asegurada:
+
+\begin{description}
+
+  \item[Planning meetings]
+
+    Las minutas de las reuniones bisemanales de planificación de sprints se
+    registran en este mismo repositorio, dentro de la carpeta
+    \texttt{memo/planning}. Cada minuta es un archivo diferente dentro de esa
+    carpeta, cuyo nombre debe tener el formato \texttt{YYYYMMDD.md}. Las
+    minutas se confeccionan a partir de un template en la misma carpeta con el
+    nombre \texttt{\_template\_.md}.
+
+    La gestión de las tareas se registra en los boards de trello como se
+    describe en la sección de Trazabilidad de Requerimientos.
+
+  \item[Retrospective meetings]
+
+    Las minutas de las reuniones retrospectivas de sprints también se registran
+    en este mismo repositorio, dentro de la carpeta \texttt{memo/retro}. Cada
+    minuta es un archivo diferente dentro de esa carpeta, cuyo nombre debe
+    tener el formato \texttt{YYYYMMDD.md}. Las minutas se confeccionan a partir
+    de un template en la misma carpeta con el nombre \texttt{\_template\_.md}.
+
+\end{description}
+
+\subsection{Trazabilidad de Requisitos, Bugs y Technical Spikes}
+
+Los requisitos, bugs y spikes se registran en un backlog en un board de trello
+(https://trello.com/b/nLy9mjZL/backlog). Dentro de este board se crean cards
+categorizadas en 5 listas priorizadas. Cada lista contiene una tarjeta
+denominada \texttt{TEMPLATE} con la que confeccionar las cards de cada tipo.
+Las listas son las siguientes:
+
+\begin{description}
+
+  \item[Admin]
+
+    Esta lista contiene las tareas administrativas, como gestión de documentos,
+    armado de presentaciones y similares. Se decidió incluirlas en la
+    planificación de la sprint y en el ciclo de vida del proyecto debido a que
+    el equipo es reducido y este tipo de tareas influye de manera marcada en la
+    velocidad de la sprint.
+
+  \item[Epics]
+
+    Esta lista contiene las epic stories del proyecto, funcionalidades de alto
+    nivel que luego se analizan en más detalle generando las user stories
+    asociadas.
+
+  \item[Stories]
+
+    Esta lista contiene las user stories del proyecto. Cada user story es una
+    funcionalidad completa e indivisible que puede entrar en un release de
+    manera atómica, está asociada con una epic story padre y con una o más
+    cards relacionadas.
+
+  \item[Bugs]
+
+    Esta lista contiene los bugs detectados en el proyecto. Cada bug tiene en
+    el título de la card la criticidad de acuerdo al siguiente criterio:
+
+    \begin{description}
+
+      \item[Minor]
+
+        Errores tipográficos o cosméticos que no interrumpen un flujo de
+        usuario.
+
+      \item[Major]
+
+        Errores funcionales que interrumpen la operación de la aplicación y que
+        tienen workaround dentro de un flujo de usuario.
+
+      \item[Blocker]
+
+        Errores funcionales que interrumpen un flujo de usuario y que no tienen
+        workaround.
+
+    \end{description}
+
+  \item[Spikes]
+
+    Esta lista contiene las tareas de investigación, diseño o prototipado.
+
+\end{description}
+
+Durante cada reunión de planning se seleccionan de las listas de Admin,
+Stories, Bugs y Spikes las cards que se desarrollaran en la sprint en función
+de la velocidad promedio de todas las sprints. Todas las tareas seleccionadas
+deben tener una estimación de complejidad en story points dentro de la escala
+de Fibonacci. Las tareas seleccionadas se mueven al board de trello en
+https://trello.com/b/fWOELyE0/sprint, y se les asigna un label en función del
+tipo original al que pertenecían (Admin, Stories, Bugs, Spikes).
+
+Durante la sprint, se desarrollan las tareas del board de sprint. Este board
+tiene columnas a través de las cuales se mueven las cards de la sprint para
+representar el avance de cada tarea. Las columnas son las siguientes:
+
+\begin{description}
+
+  \item[Backlog]
+
+    Esta lista contiene las cards de la sprint que no están en progreso ni
+    terminadas.
+
+  \item[In Progress]
+
+    Esta lista contiene las tareas que están en progreso. Obligatoriamente
+    deben tener al menos un integrante asignado.
+
+  \item[Review]
+
+    Esta lista contiene las tareas que están en revisión. En las cards de tipo
+    story o bug este estado implica que existe un Pull Request (ver sección de
+    Versionado) asociado a la tarea, y que la misma está lista para incorporar
+    al entorno productivo. En otro tipo de tareas implica que está listo para
+    mostrar y discutir el entregable asociado.
+
+  \item[Done]
+
+    Esta lista contiene las tareas que están listas. En el caso de las cards de
+    tipo story o bug, esto implica que la misma fue incorporada al entorno
+    productivo. En otro tipo de tareas implica que el entregable asociado está
+    revisado y aceptado por las partes interesadas.
+
+\end{description}
+
+En cada reunión de cierre de sprint se registra en un google spreadsheet en la
+carpeta de google drive del proyecto denominado metrics las mediciones de la
+sprint, como son los story points totales implementados en la sprint y la
+cantidad de horas consumidas. Es este documento el que se utiliza para calcular
+la velocidad promedio de las sprints.
 
 \subsection{Trazabilidad de Costos}
 
-\subsection{Trazabilidad de Bugs}
+Los costos del proyecto se registran en horas de trabajo utilizando Toggl
+(https://www.toggl.com/app) a través del addon de togglbutton. Cuando se dedica
+tiempo a cualquier card del backlog o de la sprint se utiliza el togglbutton de
+la card para registrar el inicio y el fin del trabajo.
+
+En la reunión de cierre de la sprint cada integrante debe utilizar el reporte
+de horas de la herramienta para obtener la cantidad de horas totales que se
+utilizó en cada story. Estas horas se registran en el mismo google spreadsheet
+de metrics descripto en la sección anterior. Con este documento se calculan y
+controlan las horas consumidas y restantes para realizar una gestión de costos
+eficaz.
 
 \section{Versionado}
 
-\section{Calidad}
+El proyecto es versionado con Git en GitHub (https://github.com/) en 3
+repositorios públicos dentro de la organización quecurso
+(https://github.com/quecurso):
 
-\subsection{Calidad de Producto}
+\begin{description}
 
-\subsection{Calidad de Procesos}
+  \item[https://github.com/quecurso/docs]
 
-\section{Riesgos}
+    Contiene los documentos relacionados al proyecto, como el brief de
+    proyecto, el presente manual, las minutas de reuniones y similares.
+
+  \item[https://github.com/quecurso/backend]
+
+    Contiene la aplicación web que expone los servicios REST que constituyen el
+    engine de estado persistente de la aplicación.
+
+  \item[https://github.com/quecurso/frontend]
+
+    Contiene el cliente estático HTML5 a través del cual los usuarios
+    interactúan con la aplicación, ya sea desde plataformas desktop o mobile.
+
+\end{description}
+
+Tanto el repositorio de backend como el de frontend siguen la misma estrategia
+de versionado:
+
+\begin{description}
+
+  \item[master]
+
+    Branch en el que se encuentra el código que está incorporado al entorno
+    productivo. Todos los commits de este branch son automáticamente
+    incorporados al entorno productivo una vez que la regresión automatizada se
+    completa exitosamente (ver la sección de Continuous Delivery).
+
+  \item[f-xyz-title]
+
+    Branches que contienen commits relacionados a una story particular. Por
+    ejemplo, para una story con card id 23 y título "Información de perfil", el
+    branch correspondiente se llamaría \texttt{f-23-profile-information}.
+
+    Los commits de estos branches no se incorporan a ningún entorno, aunque si
+    se ejecuta la regresión automatizada por cada commit publicado en el
+    repositorio central.
+
+    Estos branches de features se mantienen actualizados con respecto al master
+    a través de la herramienta de \texttt{git rebase}.
+
+    Una vez que el feature está completo, el branch se publica en el
+    repositorio central y se crea un Pull Request contra \texttt{master} con el
+    número de card y el título de la story (siguiendo el ejemplo anterior, el
+    título del pull request sería "23 - Información de Perfil". El Pull Request
+    debe contener un link a la card de trello de la user story y una
+    descripción de los cambios realizados. Por otro lado, en trello se debe
+    mover la tarjeta al estado Review, asignar a otro de los miembros a la
+    tarjeta y agregar un comentario con la url en donde está el Pull Request.
+
+  \item[b-xyz-title]
+
+    Branches similares a \texttt{f-xyz-title} pero relacionados con bugs en vez
+    de stories. Su manejo es idéntico a los branches de features.
+
+\end{description}
+
+Con respecto al repositorio de documentos, los commits se hacen sobre branches
+similares a los branches de features pero cuyo nombre es \texttt{xyz-title},
+donde xyz es el número de la card administrativa que originó el cambio de
+documentación y title es el título de la misma. El mecanismo de gestión de
+integración de estos branches es el mismo que en los otros repositorios
+(rebases continuos, Pull Requests, links en las cards, etc.).
+
+\section{Continuous Delivery}
+
+Se utilizará Travis (https://travis-ci.org/) para integrar continuamente el
+código, ejecutar las pruebas unitarias y de integración automáticas de ambos
+proyectos y realizar los despliegues a todos los entornos en el caso de que el
+commit sea en el branch \texttt{master}.
+
+La aplicación se ejecutará sobre la plataforma de Heroku
+(https://www.heroku.com/), y Travis se encargará de realizar los despliegues a
+los distintos entornos, uno productivo y otro de staging.
 
 \end{document}
